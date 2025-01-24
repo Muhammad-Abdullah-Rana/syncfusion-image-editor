@@ -1,18 +1,26 @@
-import { Component } from '@angular/core';
-import { ImageEditorModule } from '@syncfusion/ej2-angular-image-editor'
-import { RouterOutlet } from '@angular/router';
+import { ImageEditorModule, ImageEditorComponent, ShapeSettings } from '@syncfusion/ej2-angular-image-editor';
+import { Component, ViewChild,ViewEncapsulation  } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ImageEditorModule],
+  imports: [ImageEditorModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  title = 'syncfusion-image-editor';
 
-  // Registering Syncfusion license key
-  constructor() {
+export class AppComponent {
+  @ViewChild('imageEditor') imageEditor!: ImageEditorComponent;
+  isImageEditorInitialized = false;
+
+  // This method is triggered when the Image Editor is fully initialized
+  onImageEditorCreated(): void {
+    this.isImageEditorInitialized = true;
+  }
+
+  public manipulateImage(): void {
+    let shape: ShapeSettings[] = this.imageEditor.getShapeSettings();
+    //console.log(shape);
   }
 }

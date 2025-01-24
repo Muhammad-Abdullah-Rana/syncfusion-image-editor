@@ -1,6 +1,3 @@
-<div id="wrapperDiv" style="width:550px;height:350px;">
-  <ejs-imageeditor></ejs-imageeditor>
- </div>
-
-
-<router-outlet />
+<div id="editor-wrapper">
+  <ejs-imageeditor #imageEditor id="image-editor" (beforeSave)="manipulateImage()"></ejs-imageeditor>
+</div>
