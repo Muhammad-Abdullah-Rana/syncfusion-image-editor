@@ -1,3 +1,3 @@
 <div id="editor-wrapper">
-  <ejs-imageeditor #imageEditor id="image-editor" (beforeSave)="manipulateImage()"></ejs-imageeditor>
+  <ejs-imageeditor #imageEditor id="image-editor" (fileOpened)="drawSavedAnnotations()" (beforeSave)="saveAnnotations()"></ejs-imageeditor>
 </div>
